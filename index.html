@@ -33,11 +33,13 @@
     </header>
     
     <main>
+
+        <!-- PÁGINA SITES (DEFAULT) -->
         <div id="sites" class="conteudo active">
             <div class="">
                 <h1>Lista de Sites</h1>
 
-                    <ul><button class="tns">TNS</button></ul>
+                    <button class="tns">TNS</button>
                     <ul id="site-list"></ul>
 
                     <div id="additional-buttons"></div>
@@ -59,11 +61,36 @@
                     </script>
             </div>
         </div>
-        <div id="provedores" class="conteudo">Conteúdo dos Provedores Esportes</div>
-        <div id="tns" class="conteudo">Conteúdo do TNS</div>
-        <div id="exemplo1" class="conteudo">Conteúdo do Exemplo 1</div>
-        <div id="exemplo2" class="conteudo">Conteúdo do Exemplo 2</div>
+        
+        <!-- PÁGINA PROVEDORES ESPORTE -->
+        <div id="provedores" class="conteudo">Conteúdo dos Provedores Esportes
+
+            <!-- >>>>>>>>>>>>> CONTEÚDO <<<<<<<<<<<<<<< -->
+
+        </div>
+
+        <!-- PÁGINA TNS -->
+        <div id="tns" class="conteudo">Conteúdo do TNS
+
+            <!-- >>>>>>>>>>>>> CONTEÚDO <<<<<<<<<<<<<<< -->
+
+        </div>
+
+        <!-- PÁGINA EXEMPLO 1 -->
+        <div id="exemplo1" class="conteudo">Conteúdo do Exemplo 1
+
+            <!-- >>>>>>>>>>>>> CONTEÚDO <<<<<<<<<<<<<<< -->
+
+        </div>
+
+        <!-- PÁGINA EXEMPLO 2 -->
+        <div id="exemplo2" class="conteudo">Conteúdo do Exemplo 2
+
+            <!-- >>>>>>>>>>>>> CONTEÚDO <<<<<<<<<<<<<<< -->
+
+        </div>
     </main>
+    
     <script>
             document.addEventListener('DOMContentLoaded', function() {
         const menus = document.querySelectorAll('.menu');
@@ -82,6 +109,21 @@
             });
         });
     });
+
+
+    window.addEventListener('load', function() {
+    const token = sessionStorage.getItem('token');
+    if (!token || !validateToken(token)) {
+        window.location.href = 'login.html';
+    }
+});
+
+function validateToken(token) {
+    // Lógica de validação do token
+    // Por exemplo, verificar se o token existe no banco de dados ou se está no formato correto
+    return token && token.length === 36; // Verifica se o token tem o comprimento esperado para um UUID
+}
+
     </script>
     
     <script src="scripts.js"></script>
