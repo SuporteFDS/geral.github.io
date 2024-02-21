@@ -64,6 +64,25 @@
         <div id="exemplo1" class="conteudo">Conteúdo do Exemplo 1</div>
         <div id="exemplo2" class="conteudo">Conteúdo do Exemplo 2</div>
     </main>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        const menus = document.querySelectorAll('.menu');
+        const conteudos = document.querySelectorAll('.conteudo');
+
+        menus.forEach(menu => {
+            menu.addEventListener('click', function() {
+                const menuSelecionado = this.getAttribute('data-menu');
+                conteudos.forEach(conteudo => {
+                    if (conteudo.id === menuSelecionado) {
+                        conteudo.classList.add('active');
+                    } else {
+                        conteudo.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+    </script>
     
     <script src="scripts.js"></script>
 
