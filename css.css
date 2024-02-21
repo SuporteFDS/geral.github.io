@@ -59,3 +59,50 @@ button:hover {
     max-width: 80%; /* Largura máxima do popup */
 }
 
+
+/* NAVBAR */
+header {
+    /*background-color: #333;*/
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    
+}
+
+header nav a {
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all 0.5s ease;
+    font-size: 45px;
+    border: 1px solid #ccc; /* Adiciona uma borda de 1px sólida cinza */
+    border-radius: 5px; /* Adiciona cantos arredondados à borda */
+    display: inline-block;
+}
+
+header nav a:hover {
+    background-color: #1f5808;
+}
+
+main {
+    padding: 20px;
+    transition: all 0.5s ease;
+}
+
+/* Estilo para o conteúdo de cada menu */
+.conteudo {
+    display: none;
+}
+
+.conteudo.active {
+    display: block;
+}
+
+.div1 {
+    width: 100px;
+    height: block;
+    background-color: #007bff;
+
+}
