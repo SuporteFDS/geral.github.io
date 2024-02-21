@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automatização de Acessos</title>
+<title>SUPORTE FDS</title>
 <link rel="stylesheet" href="css.css">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="css.css"></script>
+<script src="scripts.js"></script>
 <script>
     //ADICIONE OS SITES NOS BOTÕES ABAIXO//
     const sites = [
@@ -22,15 +24,17 @@
 </head>
 <body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
     <header>
-        <nav>
-            <a href="#" class="menu" data-menu="sites">Sites</a>
-            <a href="#" class="menu" data-menu="provedores">Provedores Esportes</a>
-            <a href="#" class="menu" data-menu="tns">TNS</a>
-            <a href="#" class="menu" data-menu="exemplo1">Exemplo 1</a>
-            <a href="#" class="menu" data-menu="exemplo2">Exemplo 2</a>
-        </nav>
+        <nav class="nav nav-pills flex-column flex-sm-row">
+            <a class="flex-sm-fill text-sm-center nav-link active menu" href="#" class="menu" aria-current="page" data-menu="sites">Sites</a>
+            <a class="flex-sm-fill text-sm-center nav-link menu" href="#" class="menu" data-menu="provedores">Provedores Esportes</a>
+            <a class="flex-sm-fill text-sm-center nav-link menu" href="#" class="menu" data-menu="tns">TNS</a>
+            <a class="flex-sm-fill text-sm-center nav-link menu" href="#" class="menu" data-menu="outros">Outros</a>
+        </nav>  
     </header>
+    
     
     <main>
 
@@ -39,7 +43,6 @@
             <div class="">
                 <h1>Lista de Sites</h1>
 
-                    <button class="tns">TNS</button>
                     <ul id="site-list"></ul>
 
                     <div id="additional-buttons"></div>
@@ -70,8 +73,9 @@
         </div>
 
         <!-- PÁGINA TNS -->
-        <div id="tns" class="conteudo">Conteúdo do TNS
+        <div id="tns" class="conteudo">
 
+            <button class="tns">TNS</button>
             <!-- >>>>>>>>>>>>> CONTEÚDO <<<<<<<<<<<<<<< -->
 
         </div>
