@@ -1,4 +1,4 @@
-    body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
@@ -17,7 +17,7 @@ li {
     margin-bottom: 10px;
 }
 
-button {
+button, .tns {
     padding: 5px 10px;
     background-color: #007bff;
     color: white;
@@ -27,22 +27,8 @@ button {
     font-size: 100%;
 }
 
-button:hover {
+button:hover, .tns:hover {
     background-color: #0056b3;
-}
-
-.tns {
-    padding: 5px 10px;
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 130px;
-    font-size: 100%;
-}
-
-.tns:hover {
-    background-color: #b30000;
 }
 
 #additional-buttons {
@@ -59,16 +45,12 @@ button:hover {
     max-width: 80%; /* Largura máxima do popup */
 }
 
-
-/* NAVBAR */
 header {
-    /*background-color: #333;*/
     color: white;
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     transition: all 0.5s ease;
-    
 }
 
 header nav a {
@@ -83,7 +65,7 @@ header nav a {
 }
 
 header nav a:hover {
-    background-color: #1f5808;
+    background-color: #31af26;
 }
 
 main {
@@ -98,11 +80,4 @@ main {
 
 .conteudo.active {
     display: block;
-}
-
-.div1 {
-    width: 100px;
-    height: block;
-    background-color: #007bff;
-
 }
