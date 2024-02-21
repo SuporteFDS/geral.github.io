@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css.css">
 
 <script>
-
+    //ADICIONE OS SITES NOS BOTÕES ABAIXO//
     const sites = [
         { name: 'Tudodebet', url: 'https://tudodebet.com/login/', bko: 'https://tudodebet.com/login/', demo: 'https://tudodebet.com/login/', email: 'evoplay@fds.com', senha: '@evoplay' },
         { name: 'Topabet', url: 'https://topabet.com/', bko: 'https://backoffice.topabet.com/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
@@ -19,6 +19,7 @@
         { name: 'Lance365', url: 'https://lance365.net/casino/', bko: 'https://backoffice.lance365.net/login', demo: 'https://afiliado.lance365.net/casino/', bkodemo: 'https://lance_afiliado.fds.bet/login', email: 'seuemail2@example.com', senha: 'suasenha2' },
     ];
 
+    //BOTÕES DE REDIRECIONAMENTO//
     function showAdditionalButtons(title, buttons) {
     const additionalButtonsContainer = document.getElementById('additional-buttons');
     additionalButtonsContainer.innerHTML = ''; // Limpa os botões anteriores
@@ -41,7 +42,7 @@
     additionalButtonsContainer.style.display = 'block'; // Exibe o container de botões
 }
 
-
+    //EXIBIÇÃO DE BOTÕES CENTRAIS//
     document.addEventListener('DOMContentLoaded', function() {
         const siteList = document.getElementById('site-list');
 
@@ -57,7 +58,7 @@
         { name: 'Backoffice Demo', url: site.bkodemo }
     ]);
 });
-
+            //BOTÕES EXIBIDOS NA LATERAL//
             li.appendChild(button);
             siteList.appendChild(li);
         });
@@ -71,28 +72,70 @@
 </script>
 </head>
 <body>
-<h1>Lista de Sites</h1>
 
-<ul><button class="tns">TNS</button></ul>
-<ul id="site-list"></ul>
+    <header>
+        <nav>
+            <a href="#" class="menu" data-menu="sites">Sites</a>
+            <a href="#" class="menu" data-menu="provedores">Provedores Esportes</a>
+            <a href="#" class="menu" data-menu="tns">TNS</a>
+            <a href="#" class="menu" data-menu="exemplo1">Exemplo 1</a>
+            <a href="#" class="menu" data-menu="exemplo2">Exemplo 2</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div id="sites" class="conteudo active">
+            <div class="">
+                <h1>Lista de Sites</h1>
 
-<div id="additional-buttons"></div>
+                    <ul><button class="tns">TNS</button></ul>
+                    <ul id="site-list"></ul>
 
-<textarea id="areaDeTexto" rows="10" cols="30"></textarea>
-<br>
-<button onclick="salvarAnotacoes()">Salvar Anotações</button>
+                    <div id="additional-buttons"></div>
 
-<script>
-    function salvarAnotacoes() {
-        var conteudo = document.getElementById('areaDeTexto').value;
+                    <textarea id="areaDeTexto" rows="10" cols="30"></textarea>
+                    <br>
+                    <button onclick="salvarAnotacoes()">Salvar Anotações</button>
 
-        var blob = new Blob([conteudo], { type: 'text/plain' });
-        var link = document.createElement('a');
-        link.download = 'anotacoes.txt';
-        link.href = window.URL.createObjectURL(blob);
-        link.click();
-    }
-</script>
+                    <script>
+                        function salvarAnotacoes() {
+                            var conteudo = document.getElementById('areaDeTexto').value;
+
+                            var blob = new Blob([conteudo], { type: 'text/plain' });
+                            var link = document.createElement('a');
+                            link.download = 'anotacoes.txt';
+                            link.href = window.URL.createObjectURL(blob);
+                            link.click();
+                        }
+                    </script>
+            </div>
+        </div>
+        <div id="provedores" class="conteudo">Conteúdo dos Provedores Esportes</div>
+        <div id="tns" class="conteudo">Conteúdo do TNS</div>
+        <div id="exemplo1" class="conteudo">Conteúdo do Exemplo 1</div>
+        <div id="exemplo2" class="conteudo">Conteúdo do Exemplo 2</div>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menus = document.querySelectorAll('.menu');
+            const conteudos = document.querySelectorAll('.conteudo');
+    
+            menus.forEach(menu => {
+                menu.addEventListener('click', function() {
+                    const menuSelecionado = this.getAttribute('data-menu');
+                    conteudos.forEach(conteudo => {
+                        if (conteudo.id === menuSelecionado) {
+                            conteudo.classList.add('active');
+                        } else {
+                            conteudo.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+
 </body>
 </html>
-
