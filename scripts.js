@@ -22,6 +22,9 @@ function showAdditionalButtons(title, buttons) {
 }
 
 //EXIBIÇÃO DE BOTÕES CENTRAIS//
+
+let buttonsAdded = false; // Flag para controlar se os botões foram adicionados >>> quando o site era acessado ele redirecionava ao login, por ler a página duas vezes ele duplicava a lista que dependia da leitura da página para aparecer.
+
 document.addEventListener('DOMContentLoaded', function() {
     const siteList = document.getElementById('site-list');
 
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { name: 'Site Demo', url: site.demo },
             { name: 'Backoffice Demo', url: site.bkodemo }
         ]);
+        buttonsAdded = true; // Atualiza a flag para indicar que os botões foram adicionados
     });
             //BOTÕES EXIBIDOS NA LATERAL//
             li.appendChild(button);
@@ -47,5 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', () => {
             window.open(button.url, '_blank');
     })
+
+
+
 
 
