@@ -39,46 +39,8 @@
         </div>
     </div>
 
-    
-    <!-- <form id="loginForm">
-        <label for="email">Email:</label></br>
-        <input type="email" id="email" required><br><br>
-        <label for="password">Senha:</label></br>
-        <input type="password" id="password" required><br><br>
-        <button type="submit">Login</button>
-    </form>-->
-    <div id="errorMessage" style="color: red; display: none;">Email ou senha incorretos. Tente novamente.</div>
+    <div id="errorMessage" style="color: red; display: none; text-align: center;">Email ou senha incorretos. Tente novamente.</div>
 
-    <script>
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        const email = 'nosamamosniltim@suporte.com';
-        const senha = '123456';
-
-        function generateToken(email, senha) {
-    // Concatena o e-mail e a senha e calcula o hash MD5
-    return MD5(email + senha);
-}
-
-function generateToken() {
-    return crypto.randomUUID();
-}
-
-
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const inputEmail = document.getElementById('email').value;
-            const inputSenha = document.getElementById('password').value;
-            
-            if (inputEmail === email && inputSenha === senha) {
-                const token = generateToken();
-                sessionStorage.setItem('token', token); // Armazena o token na sessão
-                window.location.href = 'index.html'; // Redireciona para a página principal
-            } else {
-                errorMessage.style.display = 'block'; // Exibe a mensagem de erro
-            }
-            });
-
-    </script>
+    <script src="scriptslogin.js"></script>
 </body>
 </html>
