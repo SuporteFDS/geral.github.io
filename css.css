@@ -19,7 +19,7 @@ li {
 
 button, .tns {
     padding: 5px 10px;
-    background-color: #70f03e;
+    background-color: #53c924;
     color: white;
     border: none;
     cursor: pointer;
@@ -28,7 +28,7 @@ button, .tns {
 }
 
 button:hover, .tns:hover {
-    background-color: #1ebd2b;
+    background-color: #16a522;
 }
 
 #additional-buttons {
