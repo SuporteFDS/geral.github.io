@@ -85,4 +85,5 @@ main {
 .border-div-main {
     border: 2px solid #000; /* largura, estilo e cor da borda */
     padding: 20px; /* opcional: adicione um preenchimento interno para melhor visualização */
+    width: block;
 }
