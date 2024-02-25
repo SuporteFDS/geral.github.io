@@ -8,25 +8,52 @@
 <link rel="stylesheet" href="css.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="css.css"></script>
-<script src="scripts.js"></script>
-<script>
-    //ADICIONE OS SITES NOS BOTÕES ABAIXO//
-    const sites = [
-        { name: 'Tudodebet', url: 'https://tudodebet.com/login/', bko: 'http://backoffice.tudodebet.com/admin', demo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Topabet', url: 'https://topabet.com/', bko: 'https://backoffice.topabet.com/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Betyze', url: 'https://betyze.com/', bko: 'https://backoffice.betyze.com/login', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Cacife', url: 'https://cacifebet.com/', bko: 'https://backoffice.cacifebet.com/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Bruxo10', url: 'https://bruxo10.bet/', bko: 'https://backoffice.bruxo10.bet/', demo: 'https://afiliado.bruxo10.bet/casino', bkodemo: 'https://bruxo_afiliado.fds.bet/login', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Nextwin', url: 'https://nextwin.global/', bko: 'backoffice.nextwin.global/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Vitoriosobet', url: 'https://vitoriosobet.bet/', bko: 'https://backoffice.vitoriosobet.bet/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Lance365', url: 'https://lance365.net/casino/', bko: 'https://backoffice.lance365.net/login', demo: 'https://afiliado.lance365.net/casino/', bkodemo: 'https://lance_afiliado.fds.bet/login', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'x2bet', url: 'https://x2bet.com/', bko: 'https://backoffice.x2bet.com/login', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-        { name: 'Pitaco', url: 'https://pitaco.bet/', bko: 'https://backoffice.pitaco.com/login', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
-    ];
-</script>
+    <style>
+        .card {
+                background-color: #acabab;
+                cursor: pointer;
+        }
+
+        .tamanho_cards {
+        height:90x;
+        width:200px;
+        }
+
+        .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;  
+    border-radius: 5px;
+    z-index: 10000;
+    align-items: center;
+}
+
+.card:hover {
+    background-color: #16a522;
+}
+
+
+    </style>
 </head>
 <body>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
     <header>
@@ -38,35 +65,43 @@
         </nav>  
     </header>
     
+    <script>
+        const sites = [
+            { name: 'Tudodebet', img: 'https://cotainers3.blob.core.windows.net/tudodebet/settings/YFhs4Yr1GbgsFEmJW2jh6OT1rr2pzBum0Lgk9zX8oJNuJwU.sj9..png',  url: 'https://tudodebet.com/login/', bko: 'http://backoffice.tudodebet.com/admin', demo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Topabet', img: 'https://cotainers3.blob.core.windows.net/topabet/settings/C6O.NubZUAlcD633KBZpBOiGxRXcsd3ivN32m2O6RXmPhJrlAADkG.png', url: 'https://topabet.com/', bko: 'https://backoffice.topabet.com/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Betyze', img: 'https://storage.fds.bet/betyze/settings/Ye.vHNkh4zffjBtPG7Hz.uSIXYO6CP4Zf1u8M50TkpJj1T97P76.png', url: 'https://betyze.com/', bko: 'https://backoffice.betyze.com/login', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Cacife', img: 'https://cotainers3.blob.core.windows.net/cacifebet/settings/J5EmS3AbpzB5iucJkwshkusKR7ThAmdxkK3C8AEZ2a977MOtS8wiC.png', url: 'https://cacifebet.com/', bko: 'https://backoffice.cacifebet.com/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Bruxo10', img: 'https://cotainers3.blob.core.windows.net/fdsbet/settings/9r9jycS.6HLGriz5KRuWcOkK09KAk4H6QZyTltYvHNi0xjDiBvUZe.png', url: 'https://bruxo10.bet/', bko: 'https://backoffice.bruxo10.bet/', demo: 'https://afiliado.bruxo10.bet/casino', bkodemo: 'https://bruxo_afiliado.fds.bet/login', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Nextwin', img: 'https://storage.fds.bet/nextwin/settings/RfkcAdnME5NTeerGDGU3k.FIiq6Gycb7GHu1jlOcmsi7kG6CpR35e.png', url: 'https://nextwin.global/', bko: 'backoffice.nextwin.global/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Vitoriosobet', img: 'https://cotainers3.blob.core.windows.net/vitoriosobet/settings/Tl0ATNUxw5vjiQ1hs1usMO8OLWUTpb.TWJ3DXUbuYYQuuyDbDDaoa.png', url: 'https://vitoriosobet.bet/', bko: 'https://backoffice.vitoriosobet.bet/', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Lance365', img: 'https://cotainers3.blob.core.windows.net/lance365/settings/EXjpOBAXqTzB11oRHMsqO3MpH3Yts5tVmJem7hARsulpQLS6OO.png', url: 'https://lance365.net/casino/', bko: 'https://backoffice.lance365.net/login', demo: 'https://afiliado.lance365.net/casino/', bkodemo: 'https://lance_afiliado.fds.bet/login', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'x2bet', img: 'https://storage.fds.bet/x2bet/settings/1AvIKUHmAd8jgJcoSR4mAuESkgBShHw8qB9vTJeZNi1R4YfXXdoXW.png', url: 'https://x2bet.com/', bko: 'https://backoffice.x2bet.com/login', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+            { name: 'Pitaco', img: 'https://cotainers3.blob.core.windows.net/pitaco/settings/OpEqZPS116YrlZJqz4TUNu2e9.c08GMdbLcqyy2Zy7Xh7sWEZ838G.png', url: 'https://pitaco.bet/', bko: 'https://backoffice.pitaco.com/login', demo: '#', bkodemo: '#', email: 'seuemail2@example.com', senha: 'suasenha2' },
+        ];
+
+    </script>
+
     
     <main>
 
         <!-- PÁGINA SITES (DEFAULT) -->
         <div id="sites" class="conteudo active">
+            
+            <h1>Lista de Sites</h1>
+
             <div class="border-div-main">
-                <h1>Lista de Sites</h1>
+                
+                <div class="row row-cols-1 row-cols-md-1 g-5 ">
 
-                    <ul id="site-list"></ul>
-
-                    <div id="additional-buttons"></div>
-
-                    <h3>Anotações</h3>
-                    <textarea id="areaDeTexto" rows="10" cols="30"></textarea>
-                    <br>
-                    <button onclick="salvarAnotacoes()">Salvar Anotações</button>
-
-                    <script>
-                        function salvarAnotacoes() {
-                            var conteudo = document.getElementById('areaDeTexto').value;
-
-                            var blob = new Blob([conteudo], { type: 'text/plain' });
-                            var link = document.createElement('a');
-                            link.download = 'anotacoes.txt';
-                            link.href = window.URL.createObjectURL(blob);
-                            link.click();
-                        }
-                    </script>
+                    <div class="row">
+                        <!-- Cards serão inseridos aqui -->
+                    </div>
+                    
             </div>
+            <h3>Anotações</h3>
+                <textarea id="areaDeTexto" rows="10" cols="50"></textarea>
+                <br>
+                <button onclick="salvarAnotacoes()">Salvar Anotações</button>
         </div>
         
         <!-- PÁGINA PROVEDORES ESPORTE -->
@@ -122,22 +157,9 @@
     });
 
 
-    window.addEventListener('load', function() {
-    const token = sessionStorage.getItem('token');
-    if (!token || !validateToken(token)) {
-        window.location.href = 'login.html';
-    }
-});
-
-function validateToken(token) {
-    // Lógica de validação do token
-    // Por exemplo, verificar se o token existe no banco de dados ou se está no formato correto
-    return token && token.length === 36; // Verifica se o token tem o comprimento esperado para um UUID
-}
-
     </script>
     
-    <script src="scripts.js"></script>
+    <script src="scriptsteste.js"></script>
 
 </body>
 </html>
