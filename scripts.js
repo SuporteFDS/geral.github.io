@@ -95,8 +95,8 @@ function salvarAnotacoes() {
         }
 
 
-var card = document.getElementById('tns').value;
+var cardprov = document.getElementById('tns').value;
 
-    card.addEventListener('click', () => {
+    cardprov.addEventListener('click', () => {
         window.open('https://backoffice.tnscasino.com:8443/login', '_blank');
 });
