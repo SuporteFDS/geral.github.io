@@ -12,11 +12,14 @@ sites.forEach(site => {
             <div class="card-body">
                 <div class="tamanho_cards">
                 <img src="${site.img}" class="card-img-top tamanho_cards" alt="...">
-                <h5 class="card-title">${site.name}</h5>
+                
                 </div>
             </div>
         </div>
     `;
+
+    //<h5 class="card-title">${site.name}</h5>  //POR DE VOLTA NO CARD, ABAIXO DA IMAGEM.//
+    
     card.innerHTML = cardContent;
     container.appendChild(card);
 
