@@ -1,25 +1,57 @@
-//CRIAÇÃO DE BOTÕES DE REDIRECIONAMENTO DE CLIQUE//
-function showAdditionalButtons(title, buttons) {
-    const additionalButtonsContainer = document.getElementById('additional-buttons');
-    additionalButtonsContainer.innerHTML = ''; // Limpa os botões anteriores
+//CRIAÇÃO DE CARD DE REDIRECIONAMENTO DE CLIQUE//
+const container = document.querySelector('.row');
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
 
-    const titleElement = document.createElement('h2');
-    titleElement.textContent = title;
-    titleElement.style.textAlign = 'center';
-    additionalButtonsContainer.appendChild(titleElement);
+sites.forEach(site => {
+    const card = document.createElement('div');
+    card.classList.add('col-md-3');
 
-    buttons.forEach(button => {
-        const btn = document.createElement('button');
-        btn.textContent = button.name;
-        btn.style.width = '100%';
-        btn.addEventListener('click', () => {
-            window.open(button.url, '_blank');
-        });
-        additionalButtonsContainer.appendChild(btn);
+    const cardContent = `
+        <div class="card">
+            <div class="card-body">
+                <div class="tamanho_cards">
+                <img src="${site.img}" class="card-img-top tamanho_cards" alt="...">
+                <h5 class="card-title">${site.name}</h5>
+                </div>
+            </div>
+        </div>
+    `;
+    card.innerHTML = cardContent;
+    container.appendChild(card);
+
+    card.addEventListener('click', () => {
+        overlay.innerHTML = `
+            <div class="popup">
+                <h2>${site.name}</h2>
+                <button onclick="window.open('${site.url}', '_blank')">Site</button></br>
+                <button onclick="window.open('${site.bko}', '_blank')">Backoffice</button></br>
+                <button onclick="window.open('${site.demo}', '_blank')">Site Demo</button></br>
+                <button onclick="window.open('${site.bkodemo}', '_blank')">Backoffice Demo</button>
+            </div>
+        `;
+        overlay.classList.add('active');
+        document.body.appendChild(overlay);
     });
+});
 
-    additionalButtonsContainer.style.display = 'block'; // Exibe o container de botões
-}
+// Remove o overlay ao clicar fora dele
+document.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+        overlay.classList.remove('active');
+        overlay.remove();
+    }
+});
+
+
+// Remove o overlay ao clicar fora dele
+document.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+        overlay.remove();
+    }
+});
+
+
 
 //EXIBIÇÃO DE BOTÕES CENTRAIS//
 
@@ -52,7 +84,15 @@ document.addEventListener('DOMContentLoaded', function() {
             window.open(button.url, '_blank');
     })
 
+function salvarAnotacoes() {
+    var conteudo = document.getElementById('areaDeTexto').value;
 
+    var blob = new Blob([conteudo], { type: 'text/plain' });
+    var link = document.createElement('a');
+        link.download = 'anotacoes.txt';
+        link.href = window.URL.createObjectURL(blob);
+        link.click();
+        }
 
 
 
