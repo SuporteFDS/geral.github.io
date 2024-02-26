@@ -23,7 +23,7 @@ button, .tns {
     color: white;
     border: none;
     cursor: pointer;
-    width: 130px;
+    width: 100%;
     font-size: 100%;
 }
 
