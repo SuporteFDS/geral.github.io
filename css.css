@@ -87,5 +87,7 @@ main {
     padding: 20px; /* opcional: adicione um preenchimento interno para melhor visualização */
     width: block;
 }
-
+#areaDeTexto {
+    width: 100%;
+}
 
